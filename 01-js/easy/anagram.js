@@ -5,6 +5,9 @@
 */
 
 function isAnagram(str1, str2) {
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
   if(str1.length != str2.length){
     return false;
   }
@@ -34,6 +37,6 @@ function isAnagram(str1, str2) {
   return true;
 }
 
-console.log(isAnagram("abc","cba"));
+
 
 module.exports = isAnagram;
