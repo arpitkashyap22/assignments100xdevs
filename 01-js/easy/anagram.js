@@ -5,7 +5,35 @@
 */
 
 function isAnagram(str1, str2) {
+  if(str1.length != str2.length){
+    return false;
+  }
 
+  let count1 = new Array(256);
+  let count2 = new Array(256);
+
+  for (let index = 0; index < 256; index++) {
+    count1[index] = 0;
+    count2[index] = 0;
+    
+  }
+
+  for(let i = 0; i<str1.length && i<str2.length; i++){
+    count1[str1[i].charCodeAt(0)]++;
+    count2[str2[i].charCodeAt(0)]++;
+  }
+
+
+  for (let index = 0; index < 256; index++) {
+    if(count1[index] != count2[index]){
+      return false;
+    }
+    
+  }
+
+  return true;
 }
+
+console.log(isAnagram("abc","cba"));
 
 module.exports = isAnagram;
